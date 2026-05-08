@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lab</groupId>
+    <artifactId>shipping-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!--
+            LOI 1 (DA SUA): logback-classic version 9.9.9 KHONG TON TAI tren Maven Central
+            => Sua thanh version 1.4.11 (phien ban on dinh moi nhat)
+        -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--
+                LOI 2 (DA SUA): maven-surefire-plugin 2.12.4 QÚA CU, khong ho tro JUnit 5
+                => Phai dung >= 2.22.0. Dung 3.1.2 la phien ban hien tai
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
+<!--
+    LOI 3 (DA SUA): ci.yml thieu buoc actions/checkout@v3
+    => Khong co checkout, Maven khong tim thay file pom.xml va source code
+    => Xem file .github/workflows/ci.yml da duoc sua
+-->
